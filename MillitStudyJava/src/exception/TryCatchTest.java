@@ -5,6 +5,7 @@ public class TryCatchTest {
 	public static void main(String[] args){
 		System.out.println("test()执行完毕，返回：" + new TryCatchTest().test());
 		System.out.println("test2()执行完毕，返回：" + new TryCatchTest().test2());
+		System.out.println("test3()执行完毕，返回：" + new TryCatchTest().test3());
 	}
 	
 	/**
@@ -61,5 +62,27 @@ public class TryCatchTest {
 			System.out.println("这是finally!!!哈哈!!!");
 			System.out.println("result="+result);
 		}
+	}
+	
+	public int test3(){
+		int divider = 10;
+		int result = 0;
+		
+		try {
+			while (divider>-1) {
+				result=result+100/divider;
+				divider--;
+			}
+			
+			return result;
+		} catch (Exception e) {
+			System.out.println("抛出异常了！！！");
+			e.printStackTrace();
+		} finally {
+			System.out.println("这是finally!!!哈哈!!!");
+			System.out.println("result="+result);
+		}
+		
+		return 1000;
 	}
 }

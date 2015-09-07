@@ -17,23 +17,19 @@ public class BookBase {
 		Scanner s = new Scanner(System.in);
 		
 		try {
-				while (next == 1) {
-					next = 0;
-					System.out.println("输入命令：1-按名称查找图书；2-按序号查找图书");
-					in1 = s.nextInt();
-				}
+			System.out.println("输入命令：1-按名称查找图书；2-按序号查找图书");
+			in1 = s.nextInt();
 		} catch (Exception e) {
 			System.out.println("命令输入错误，请按照提示输入命令。");
-			next=1;
+			bb.searchBook(books,bb);
 		}
 		
 		if(in1 == 1){
 			System.out.println("请输入图书名称：");
-			s.reset();
-			System.out.println(book);
+			book = s.next();
 			try{
 				while(i>=0){
-					if(book == books[i]){
+					if(book.equals(books[i])){
 						System.out.println("book:"+book);
 						break;
 					}
@@ -58,6 +54,10 @@ public class BookBase {
 			}finally {
 				s.close();
 			}
+		}else{
+			System.out.println("命令输入错误，请按照提示输入命令。");
+			s.close();
+			bb.searchBook(books,bb);
 		}
 	}
 }

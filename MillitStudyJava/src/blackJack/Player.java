@@ -36,4 +36,12 @@ public class Player {
 		hand.add(card);
 	}
 	
+	public void sayHand(){
+		hand.forEach((card)->System.out.println(name+":"+card));
+	}
+	
+	public void throwHand(){
+		hand.removeAll(hand);
+	}
+
 }

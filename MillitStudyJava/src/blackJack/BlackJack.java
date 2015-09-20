@@ -10,6 +10,7 @@ public class BlackJack {
 	public static void main(String[] args) {
 		Waiter waiter = new Waiter();
 		Scanner scanner = new Scanner(System.in);
+		boolean ifContinue = true;
 		
 		System.out.println("------服务生准备扑克------");
 		waiter.getADeckOfCards();
@@ -28,9 +29,30 @@ public class BlackJack {
 		System.out.println("------欢迎["+player1.getName()+"]加入游戏！------");
 		System.out.println("------开始洗牌------");
 		waiter.shuffle();
-
-		System.out.println("------开始发牌------");
-		
+        do{
+        	waiter.askAndDeal();
+        	do{
+        		System.out.println("是否继续游戏？（1：是；2：否）");
+            	try{
+    				scanner.reset();
+    				int tag = scanner.nextInt();
+    				if(tag==1){
+    					break;
+    				}else if(tag==2){
+    					ifContinue = false;
+    					break;
+    				}else{
+    					System.out.println("别逗我了！请输入1(是)或2(否)。");
+    					continue;
+    				}
+    			}catch(Exception e){
+    				e.printStackTrace();
+    				System.out.println("别逗我了！请输入1(是)或2(否)。");
+    				continue;
+    			}
+        	}while(true);
+        	
+        }while(ifContinue);
 	}
 
 }

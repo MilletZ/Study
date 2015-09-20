@@ -29,5 +29,9 @@ public class Card {
 		this.suit = suit;
 	}
 	
-
+    @Override
+    public java.lang.String toString() {
+    	// TODO Auto-generated method stub
+    	return suit+name;
+    }
 }
